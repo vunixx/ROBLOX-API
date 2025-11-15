@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/v1/(.*)", "dest": "/api/proxy/v1/$1" },
+    { "src": "/v2/(.*)", "dest": "/api/proxy/v2/$1" },
+    { "src": "^/(.*)$", "dest": "/api/proxy/universal" }
+  ],
+  "functions": {
+    "api/proxy/**/*.js": { "runtime": "nodejs18.x", "maxDuration": 10 }
+  }
+}
