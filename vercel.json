@@ -1,11 +1,13 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/v1/(.*)", "dest": "/api/proxy/v1/$1" },
-    { "src": "/v2/(.*)", "dest": "/api/proxy/v2/$1" },
-    { "src": "^/(.*)$", "dest": "/api/proxy/universal" }
-  ],
-  "functions": {
-    "api/proxy/**/*.js": { "runtime": "nodejs18.x", "maxDuration": 10 }
-  }
+    {
+      "src": "/v1/games/(?<id>[^/]+)/game-passes",
+      "dest": "/api/v1/games/$id/game-passes.js"
+    },
+    {
+      "src": "/v2/users/(?<id>[^/]+)/games",
+      "dest": "/api/v2/users/$id/games.js"
+    }
+  ]
 }
