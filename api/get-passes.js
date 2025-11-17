@@ -1,8 +1,9 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
+    // Izinkan akses dari game Roblox
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     if (req.method === 'OPTIONS') {
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Server configuration error: API Key is missing.' });
     }
 
-    // INI ADALAH ENDPOINT YANG LANGSUNG DAN SEDERHANA
+    // Endpoint resmi dan langsung dari Roblox Open Cloud
     const url = `https://apis.roblox.com/game-passes/v1/users/${userId}/game-passes?limit=100&sortOrder=Asc`;
 
     try {
