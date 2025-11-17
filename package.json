@@ -1,7 +1,6 @@
 {
   "name": "roblox-gamepass-api",
   "version": "1.0.0",
-  "description": "API to get Roblox user game passes",
   "type": "module",
   "dependencies": {
     "node-fetch": "^3.3.2"
